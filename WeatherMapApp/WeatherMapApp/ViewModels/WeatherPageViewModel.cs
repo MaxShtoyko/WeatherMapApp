@@ -26,7 +26,7 @@ namespace WeatherMapApp.ViewModels
         }
 
         public WeatherPageViewModel(INavigationService navigationService) 
-            : base (navigationService)
+             : base (navigationService)
         {
             Title = "Weather Page";
             SetLocation();

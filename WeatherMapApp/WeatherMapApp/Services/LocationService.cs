@@ -11,7 +11,7 @@ namespace WeatherMapApp.Services
     {
         static public async Task<Location> GetLocation()
         {
-            var position = await CrossGeolocator.Current.GetPositionAsync(TimeSpan.FromSeconds(10));
+            var position = await CrossGeolocator.Current.GetPositionAsync(TimeSpan.FromSeconds(2));
 
             return new Location()
             {
