@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Plugin.Geolocator;
-using WeatherMapApp.Data;
+using WeatherMapApp.Models;
 
 namespace WeatherMapApp.Services
 {
     static public class LocationService
     {
-        static public async Task<Location> GetLocation()
+        static public async Task<Location> GetLocation() 
         {
-            var position = await CrossGeolocator.Current.GetPositionAsync(TimeSpan.FromSeconds(2));
+            var position = await CrossGeolocator.Current.GetPositionAsync( TimeSpan.FromSeconds(2) );
 
             return new Location()
             {

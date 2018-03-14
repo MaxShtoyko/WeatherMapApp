@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WeatherMapApp.Data
+namespace WeatherMapApp.Models
 {
     public class Location
     {

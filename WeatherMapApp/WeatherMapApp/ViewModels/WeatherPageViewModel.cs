@@ -8,7 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using WeatherMapApp.Data;
+using WeatherMapApp.Models;
 using WeatherMapApp.Services;
 
 namespace WeatherMapApp.ViewModels
@@ -25,7 +25,7 @@ namespace WeatherMapApp.ViewModels
             }
         }
 
-        public WeatherPageViewModel(INavigationService navigationService) 
+        public WeatherPageViewModel( INavigationService navigationService ) 
              : base (navigationService)
         {
             Title = "Weather Page";
