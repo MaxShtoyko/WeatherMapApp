@@ -1,0 +1,36 @@
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Navigation;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using WeatherMapApp.Data;
+using WeatherMapApp.Services;
+
+namespace WeatherMapApp.ViewModels
+{
+    public class WeatherPageViewModel : ViewModelBase, INotifyPropertyChanged
+    {
+        private Location _currentLocation;
+        public Location CurrentLocation
+        {
+            get { return _currentLocation; }
+            set
+            {
+                SetProperty(ref _currentLocation, value);
+                OnPropertyChanged();
+            }
+        }
+
+        public WeatherPageViewModel(INavigationService navigationService) 
+            : base (navigationService)
+        {
+            Title = "Weather Page";
+            CurrentLocation = LocationService.GetLocation();
+        }
+    }
+}
