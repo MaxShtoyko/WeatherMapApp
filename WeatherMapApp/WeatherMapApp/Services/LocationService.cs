@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Plugin.Geolocator;
-using WeatherMapApp.Data;
+using WeatherMapApp.Models;
 
 namespace WeatherMapApp.Services
 {

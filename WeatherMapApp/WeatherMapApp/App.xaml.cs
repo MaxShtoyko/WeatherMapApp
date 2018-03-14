@@ -31,6 +31,7 @@ namespace WeatherMapApp
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<WeatherPage>();
+            containerRegistry.RegisterForNavigation<CurrentWeatherPage>();
         }
     }
 }
