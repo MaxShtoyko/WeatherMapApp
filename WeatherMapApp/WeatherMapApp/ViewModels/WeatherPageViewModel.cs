@@ -22,7 +22,6 @@ namespace WeatherMapApp.ViewModels
             set
             {
                 SetProperty(ref _currentLocation, value);
-                OnPropertyChanged();
             }
         }
 
@@ -30,7 +29,12 @@ namespace WeatherMapApp.ViewModels
             : base (navigationService)
         {
             Title = "Weather Page";
-            CurrentLocation = LocationService.GetLocation();
+            SetLocation();
+        }
+
+        public async void SetLocation()
+        {
+            CurrentLocation = await LocationService.GetLocation();
         }
     }
 }
