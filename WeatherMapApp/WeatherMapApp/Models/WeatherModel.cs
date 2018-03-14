@@ -7,9 +7,9 @@ using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace WeatWeatherMapApp.Models
+namespace WeatherMapApp.Models
 {
-    public partial class Weather
+    public partial class WeatherModel
     {
         [JsonProperty("coord")]
         public Coord Coord { get; set; }
@@ -128,12 +128,12 @@ namespace WeatWeatherMapApp.Models
 
     public partial class Weather
     {
-        public static Weather FromJson(string json) => JsonConvert.DeserializeObject<Weather>(json, WeatWeatherMapApp.Models.Converter.Settings);
+        public static Weather FromJson(string json) => JsonConvert.DeserializeObject<Weather>(json, WeatherMapApp.Models.Converter.Settings);
     }
 
     public static class Serialize
     {
-        public static string ToJson(this Weather self) => JsonConvert.SerializeObject(self, WeatWeatherMapApp.Models.Converter.Settings);
+        public static string ToJson(this Weather self) => JsonConvert.SerializeObject(self, WeatherMapApp.Models.Converter.Settings);
     }
 
     internal class Converter
