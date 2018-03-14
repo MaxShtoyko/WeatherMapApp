@@ -38,3 +38,5 @@ namespace WeatherMapApp.ViewModels
         }
     }
 }
+
+
