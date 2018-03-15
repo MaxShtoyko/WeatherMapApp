@@ -4,8 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherMapApp.Views.CurrentWeatherPage">
-    <StackLayout>
-        <Label Text="{Binding CurrentWeather.Main.Temp}" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
+        <Label Text="{Binding CurrentWeather.Main.Temp, StringFormat='Temperature: {0}' }" FontSize="30" />
         <Label Text="Hello" />
     </StackLayout>
 </ContentPage>

@@ -5,7 +5,7 @@ using Newtonsoft.Json.Converters;
 
 namespace WeatherMapApp.Models
 {
-    public partial class WeatherModel
+    public partial class Weather
     {
         [JsonProperty("coord")]
         public Coord Coord { get; set; }

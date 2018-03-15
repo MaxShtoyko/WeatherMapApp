@@ -7,9 +7,9 @@ namespace WeatherMapApp.ViewModels
     public class CurrentWeatherPageViewModel : BindableBase
     {
         private WeatherService _weatherService;
-        private WeatherModel _weatherModel;
+        private Weather _weatherModel;
 
-        public WeatherModel CurrentWeather
+        public Weather CurrentWeather
         {
             get { return _weatherModel; }
             set { SetProperty(ref _weatherModel, value); }

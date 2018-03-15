@@ -17,7 +17,7 @@ namespace WeatherMapApp.Services
 
         }
 
-        public async Task<WeatherModel> GetCurrentWeather()
+        public async Task<Weather> GetCurrentWeather()
         {
             Location _location = await LocationService.GetCurrentLocation();
             var request = _URL.Replace("{lat}", _location.Latitude).Replace("{lon}", _location.Longitude);
@@ -25,9 +25,7 @@ namespace WeatherMapApp.Services
 
             var weather = await _client.GetStringAsync(request);
 
-            var weatherModel = JsonConvert.DeserializeObject<WeatherModel>(weather);
-
-            return weatherModel;
+            return Weather.FromJson(weather);
         }
     }
 }
