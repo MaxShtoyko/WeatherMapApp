@@ -1,14 +1,11 @@
 ﻿using Prism;
 using Prism.Ioc;
-using WeatherMapApp.ViewModels;
 using WeatherMapApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
 using Prism.Navigation;
-using System;
 using System.Threading.Tasks;
-using WeatherMapApp;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace WeatherMapApp
@@ -27,7 +24,7 @@ namespace WeatherMapApp
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync<WeatherPage>();  
+            await NavigationService.NavigateAsync<CurrentWeatherPage>();  
         }
 
         protected override void RegisterTypes( IContainerRegistry containerRegistry )
