@@ -5,7 +5,7 @@ using WeatherMapApp.Models;
 
 namespace WeatherMapApp.Services
 {
-    static public class LocationService
+    public class LocationService
     {
         static public async Task<Location> GetCurrentLocation()
         {

@@ -5,31 +5,37 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherMapApp.Views.ForecastPage">
 
-    <StackLayout>
-        <Label Text="{Binding Forecast.City.Name}" 
-               FontSize="35" 
-               TextColor="Black" 
-               HorizontalOptions="Center"/>
+    <ListView HasUnevenRows="True"
+              ItemsSource="{Binding ForecastByDays}"
+              IsGroupingEnabled="True">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="15">
+                        <Label Text="{Binding DayOfWeek}"
+                               FontSize="Large" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="Black"
+                               FontFamily="Montserrat"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>              
+            <DataTemplate >
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Padding="3" Orientation="Horizontal">
+                            <Label Text="{Binding Data.Hour, StringFormat='{0}:00'}" WidthRequest="50"/>
+                            <Label Text="{Binding Main.Temp, StringFormat='{0:f1}°C'}" WidthRequest="50"/>
+                            <Label Text="{Binding Wind.Speed, StringFormat='{0:f2}m/s'}" WidthRequest="70"/>
+                            <Label Text="{Binding Weather[0].Description}" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
-        <Label Text="{Binding Forecast.List[0].Main.Temp, StringFormat='{0}°'}" 
-               FontSize="40" 
-               TextColor="Black" 
-               HorizontalOptions="Center"/>
-        
-        <ListView ItemsSource="{Binding Forecast.List}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout>
-                                <Label Text="{Binding DtTxt.Hour, StringFormat='{0}:00'}"/>
-                                <Label Text="{Binding Main.Temp}" />
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
-       
 </ContentPage>

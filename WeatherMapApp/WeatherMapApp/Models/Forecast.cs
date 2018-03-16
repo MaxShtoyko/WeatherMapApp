@@ -20,7 +20,7 @@ namespace WeatherMapApp.Models
         public long Cnt { get; set; }
 
         [JsonProperty("list")]
-        public List[] List { get; set; }
+        public List[] forecasts { get; set; }
 
         [JsonProperty("city")]
         public City City { get; set; }
@@ -49,9 +49,13 @@ namespace WeatherMapApp.Models
         [JsonProperty("wind")]
         public Wind Wind { get; set; }
 
+        [JsonProperty("weather")]
+        public WeatherElement[] Weather { get; set; }
+
         [JsonProperty("dt_txt")]
-        public System.DateTimeOffset DtTxt { get; set; }
+        public System.DateTimeOffset Data { get; set; }
     }
+
 
     public partial class ListMain
     {
