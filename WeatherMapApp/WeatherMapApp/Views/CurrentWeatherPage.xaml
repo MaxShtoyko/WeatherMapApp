@@ -4,8 +4,62 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherMapApp.Views.CurrentWeatherPage">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
-        <Label Text="{Binding CurrentWeather.Main.Temp, StringFormat='{0} Kelvin'}" FontSize="30" />
-        <Label Text="Hello" />
+    <StackLayout VerticalOptions="FillAndExpand">
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="40">
+
+            <Label Text="{Binding CurrentWeather.Name}" 
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="Gray" />
+            
+        </StackLayout>
+        
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="25">
+
+            <Label Text="{Binding CurrentWeather.Main.Temp, StringFormat='{0} °C'}"
+                HorizontalOptions="Center"
+                FontSize="50" 
+                TextColor="Gray" />
+
+            <Label Text="{Binding CurrentWeather.WeatherWeather[0].Main, StringFormat='{0}'}" 
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="Gray" />
+
+        </StackLayout>
+
+        <StackLayout VerticalOptions="End">
+
+            <Image Source="refresh.png"  >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                    Command="{Binding RefreshImageCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label Text="{Binding WeatherTime, StringFormat='{0}'}" 
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="Gray" />
+
+        </StackLayout>
+        
+        <StackLayout VerticalOptions="EndAndExpand" Padding="15">
+
+            <Label Text="{Binding CurrentWeather.Main.Humidity, StringFormat='{0}%'}"
+                HorizontalOptions="End"
+                FontSize="15" 
+                TextColor="Gray" />
+
+            <Label Text="{Binding CurrentWeather.Wind.Speed, StringFormat='{0} m/s'}"
+                HorizontalOptions="End"
+                FontSize="15" 
+                TextColor="Gray" />
+
+        </StackLayout>
+        
     </StackLayout>
 </ContentPage>
