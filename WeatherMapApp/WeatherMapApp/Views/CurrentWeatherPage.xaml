@@ -38,7 +38,13 @@
                     Command="{Binding RefreshImageCommand}" />
                 </Image.GestureRecognizers>
             </Image>
-            
+
+            <Label Text="{Binding WeatherTime, StringFormat='{0}'}" 
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="Gray" />
+
         </StackLayout>
         
         <StackLayout VerticalOptions="EndAndExpand" Padding="15">
