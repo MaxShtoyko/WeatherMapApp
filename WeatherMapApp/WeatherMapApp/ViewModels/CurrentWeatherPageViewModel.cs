@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using WeatherMapApp.Models;
 using WeatherMapApp.Services;
 
@@ -15,8 +16,12 @@ namespace WeatherMapApp.ViewModels
             set { SetProperty(ref _weatherModel, value); }
         }
 
+        public DelegateCommand RefreshImageCommand { get; set; }
+
         public CurrentWeatherPageViewModel()
         {
+            RefreshImageCommand = new DelegateCommand(RefreshWeather);
+
             _weatherService = new WeatherService();
             GetCurrentWeather();
         }
@@ -25,5 +30,10 @@ namespace WeatherMapApp.ViewModels
         {
             CurrentWeather = await _weatherService.GetCurrentWeather();
         }
-	}
+
+        private void RefreshWeather()
+        {
+            GetCurrentWeather();
+        }
+    }
 }
