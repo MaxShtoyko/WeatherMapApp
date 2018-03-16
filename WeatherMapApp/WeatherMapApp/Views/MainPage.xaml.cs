@@ -6,6 +6,7 @@ namespace WeatherMapApp.Views
     {
         public MainPage()
         {
+            BarBackgroundColor = Color.Gray;
             InitializeComponent();
         }
     }

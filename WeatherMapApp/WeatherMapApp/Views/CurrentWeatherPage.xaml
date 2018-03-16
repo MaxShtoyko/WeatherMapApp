@@ -5,7 +5,12 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="WeatherMapApp.Views.CurrentWeatherPage">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
-        <Label Text="{Binding CurrentWeather.Main.Temp, StringFormat='{0} Kelvin'}" FontSize="30" />
-        <Label Text="Hello" />
+        <Label Text="{Binding CurrentWeather.Main.Temp, StringFormat='{0} °C'}" 
+               FontSize="35" 
+               TextColor="Black" />
+
+        <Label Text="{Binding CurrentWeather.Name}" 
+               FontSize="35" 
+               TextColor="Black" />
     </StackLayout>
 </ContentPage>
