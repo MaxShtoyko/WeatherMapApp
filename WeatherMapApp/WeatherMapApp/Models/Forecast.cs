@@ -75,9 +75,6 @@ namespace WeatherMapApp.Models
 
         [JsonProperty("humidity")]
         public long Humidity { get; set; }
-
-        [JsonProperty("temp_kf")]
-        public long TempKf { get; set; }
     }
 
     public partial class Forecast
