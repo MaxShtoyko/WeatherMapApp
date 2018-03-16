@@ -130,6 +130,7 @@ namespace WeatherMapApp.Models
     public static class Serialize
     {
         public static string ToJson(this Weather self) => JsonConvert.SerializeObject(self, WeatherMapApp.Models.Converter.Settings);
+        public static string ToJson(this Forecast self) => JsonConvert.SerializeObject(self);
     }
 
     internal class Converter

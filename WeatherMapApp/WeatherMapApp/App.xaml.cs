@@ -24,14 +24,15 @@ namespace WeatherMapApp
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync<CurrentWeatherPage>();  
+            await NavigationService.NavigateAsync<ForecastPage>();  
         }
-
+        
         protected override void RegisterTypes( IContainerRegistry containerRegistry )
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<WeatherPage>();
             containerRegistry.RegisterForNavigation<CurrentWeatherPage>();
+            containerRegistry.RegisterForNavigation<ForecastPage>();
         }
     }
 
