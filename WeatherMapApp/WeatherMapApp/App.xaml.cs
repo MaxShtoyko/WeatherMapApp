@@ -24,7 +24,7 @@ namespace WeatherMapApp
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync<ForecastPage>();  
+            await NavigationService.NavigateAsync<MainPage>();  
         }
         
         protected override void RegisterTypes( IContainerRegistry containerRegistry )
@@ -33,6 +33,7 @@ namespace WeatherMapApp
             containerRegistry.RegisterForNavigation<WeatherPage>();
             containerRegistry.RegisterForNavigation<CurrentWeatherPage>();
             containerRegistry.RegisterForNavigation<ForecastPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
         }
     }
 
