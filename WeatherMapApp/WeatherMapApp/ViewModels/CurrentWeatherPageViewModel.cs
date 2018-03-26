@@ -1,16 +1,19 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services;
 using System;
+using System.Threading.Tasks;
 using WeatherMapApp.Models;
 using WeatherMapApp.Services;
 
 namespace WeatherMapApp.ViewModels
 {
-    public class CurrentWeatherPageViewModel : BindableBase
+    public class CurrentWeatherPageViewModel : BindableBase, INavigationAware
     {
-        private WeatherService _weatherService;
         private Weather _weatherModel;
         private DateTime _weatherTime;
+        private IPageDialogService _pageService;
 
         public Weather CurrentWeather
         {
@@ -26,22 +29,21 @@ namespace WeatherMapApp.ViewModels
 
         public DelegateCommand RefreshImageCommand { get; set; }
 
-        public CurrentWeatherPageViewModel()
+        public CurrentWeatherPageViewModel(IPageDialogService pageService)
         {
             RefreshImageCommand = new DelegateCommand(RefreshWeather);
 
-            _weatherService = new WeatherService();
-            GetCurrentWeather();
+            _pageService = pageService;
         }
 
-        private void RefreshWeather()
+        private async void RefreshWeather()
         {
-            GetCurrentWeather();
+            await GetCurrentWeather();
         }
 
-        private async void GetCurrentWeather()
+        private async Task GetCurrentWeather()
         {
-            CurrentWeather = await _weatherService.GetCurrentWeather();
+            CurrentWeather = await WeatherService.GetCurrentWeather();
             WeatherTime = UnixTimeStampToDateTime(CurrentWeather.Dt);
         }
 
@@ -51,6 +53,19 @@ namespace WeatherMapApp.ViewModels
             System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
+        public async void OnNavigatedTo(NavigationParameters parameters)
+        {
+            await GetCurrentWeather();
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
         }
     }
 }
