@@ -22,7 +22,6 @@ namespace WeatherMapApp.ViewModels
 
     public class ForecastPageViewModel : BindableBase
 	{
-        private WeatherService _weatherService;
         private Forecast _forecastByHours;
         private ObservableCollection<DailyForecast<List>> _forecastByDays;
 
@@ -40,15 +39,14 @@ namespace WeatherMapApp.ViewModels
 
         public ForecastPageViewModel()
         {
-            _weatherService = new WeatherService();
             GetForecast();          
         }
 
         private async void GetForecast()
         {
-            ForecastByHours = await _weatherService.GetForecast();
-            var forecastByDays = ForecastByHours.forecasts.GroupBy(forecast => forecast.Data.DayOfWeek).Select(g => new DailyForecast<List>(g.Key, g));
-            ForecastByDays = new ObservableCollection<DailyForecast<List>>(forecastByDays);
+            //ForecastByHours = await WeatherService.GetForecast();
+            //var forecastByDays = ForecastByHours.forecasts.GroupBy(forecast => forecast.Data.DayOfWeek).Select(g => new DailyForecast<List>(g.Key, g));
+            //ForecastByDays = new ObservableCollection<DailyForecast<List>>(forecastByDays);
         }
     }
 }
